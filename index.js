@@ -63,6 +63,27 @@ app.post('/formSubmit', async (req, res) => {
     }
 })
 
+app.post('/signin', async (req, res) => {
+    try {
+        const {email, password} = req.body
+        const formDetails = await moongoseModel.findOne({email})
+        if (formDetails)  {
+            if (formDetails.password === password) {
+                res.status(200).json({message:'getting details is ok'})
+            }
+            else {
+                res.status(400).json({message:'password is not matching'})
+            }
+            
+        }
+        else {
+            res.status(404).json({message:'email is found it'})
+        }
+    }catch (e) {
+        console.log(e)
+    }
+})
+
 app.get('/fetching-details', async (req, res) => {
     try {
         const response = await formModel.find()
