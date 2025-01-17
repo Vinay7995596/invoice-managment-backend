@@ -4,10 +4,9 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const port = 5500;
 
-const url = 'mongodb://localhost:27017/test'
-const anotherUrl = 'mongodb+srv://ragichattuvinay7995:<sIptkomxoE6hoZJn>@cluster0.fzael.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
 
-const deployUrl = 'mongodb+srv://ragichattuvinay7995:sIptkomxoE6hoZJn@cluster0.fzael.mongodb.net/loginDetails'
+const deployUrl = 'mongodb+srv://ragichattuvinay7995:sIptkomxoE6hoZJn@cluster0.fzael.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+
 
 app.use(express.json())
 app.use(cors())
