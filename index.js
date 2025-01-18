@@ -86,6 +86,19 @@ app.post('/signin', async (req, res) => {
     }
 })
 
+app.put('/updatedata', async (req, res) => {
+    try {
+        const {updateStatus, id} = req.body
+        const updatingDetails = await formModel.findOneAndUpdate({_id: id}, {amountStatus : updateStatus}, {new:true})
+        if (updatingDetails) {
+            res.status(200).json({message:'id is found'})
+            console.log(id)
+        }
+    }catch(e) {
+        console.log(e, 'stored value is problem')
+    }
+})
+
 app.get('/fetching-details', async (req, res) => {
     try {
         const response = await formModel.find()
